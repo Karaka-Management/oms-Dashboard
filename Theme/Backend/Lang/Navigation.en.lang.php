@@ -12,6 +12,4 @@
  */
 return ['Navigation' => [
     'Dashboard' => 'Dashboard',
-    'Home'      => 'Home',
-    'Logout'    => 'Logout',
 ]];
