@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Modules\Dashboard;
+namespace Modules\Dashboard\Controller;
 
 use Modules\Navigation\Models\Navigation;
 use Modules\Navigation\Views\NavigationView;
@@ -31,7 +31,7 @@ use phpOMS\Views\View;
  * @link       http://website.orange-management.de
  * @since      1.0.0
  */
-final class Controller extends ModuleAbstract implements WebInterface
+class Controller extends ModuleAbstract implements WebInterface
 {
 
     /**
@@ -40,7 +40,7 @@ final class Controller extends ModuleAbstract implements WebInterface
      * @var string
      * @since 1.0.0
      */
-    public const MODULE_PATH = __DIR__;
+    public const MODULE_PATH = __DIR__ . '/../';
 
     /**
      * Module version.
@@ -82,29 +82,4 @@ final class Controller extends ModuleAbstract implements WebInterface
      */
     protected static $dependencies = [
     ];
-
-    /**
-     * @param RequestAbstract  $request  Request
-     * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
-     *
-     * @return \Serializable
-     *
-     * @since  1.0.0
-     * @codeCoverageIgnore
-     */
-    public function viewDashboard(RequestAbstract $request, ResponseAbstract $response, $data = null) : \Serializable
-    {
-        $view = new View($this->app, $request, $response);
-        $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
-
-        $view->addData('panels', [
-            $this->app->moduleManager->get('News')->viewDashboard($request, $response, $data),
-            $this->app->moduleManager->get('Tasks')->viewDashboard($request, $response, $data),
-            $this->app->moduleManager->get('Calendar')->viewDashboard($request, $response, $data),
-        ]);
-
-        return $view;
-    }
 }
