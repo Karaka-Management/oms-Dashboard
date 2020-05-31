@@ -85,7 +85,7 @@ final class ApiController extends Controller
         }
 
         $board = $this->createBoardFromRequest($request);
-        $this->createModel($request->getHeader()->getAccount(), $board, DashboardBoardMapper::class, 'board');
+        $this->createModel($request->getHeader()->getAccount(), $board, DashboardBoardMapper::class, 'board', $request->getOrigin());
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Board', 'Board successfully created.', $board);
     }
 
@@ -151,7 +151,7 @@ final class ApiController extends Controller
         }
 
         $component = $this->createComponentFromRequest($request);
-        $this->createModel($request->getHeader()->getAccount(), $component, DashboardComponentMapper::class, 'component');
+        $this->createModel($request->getHeader()->getAccount(), $component, DashboardComponentMapper::class, 'component', $request->getOrigin());
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Component', 'Component successfully created.', $component);
     }
 
