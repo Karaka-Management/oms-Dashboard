@@ -20,6 +20,7 @@ namespace Modules\Dashboard\tests\Admin;
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
     protected const MODULE_NAME = 'Dashboard';
+
     protected const URI_LOAD = 'http://127.0.0.1/en/backend';
 
     use \Modules\tests\ModuleTestTrait;
