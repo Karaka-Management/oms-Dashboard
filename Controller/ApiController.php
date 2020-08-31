@@ -20,7 +20,6 @@ use Modules\Dashboard\Models\DashboardBoardStatus;
 use Modules\Dashboard\Models\DashboardComponent;
 use Modules\Dashboard\Models\DashboardComponentMapper;
 use phpOMS\Message\NotificationLevel;
-
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
@@ -189,6 +188,5 @@ final class ApiController extends Controller
      */
     public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
-
     }
 }

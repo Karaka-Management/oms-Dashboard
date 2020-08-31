@@ -17,7 +17,6 @@ namespace Modules\Dashboard\Admin;
 use Modules\Dashboard\Models\DashboardBoard;
 use Modules\Dashboard\Models\DashboardBoardMapper;
 use phpOMS\Config\SettingsInterface;
-
 use phpOMS\DataStorage\Database\DatabasePool;
 use phpOMS\Module\InstallerAbstract;
 use phpOMS\Module\ModuleInfo;
