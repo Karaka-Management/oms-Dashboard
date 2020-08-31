@@ -8,23 +8,23 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/dashboard/board(\?.*|$)' => [
         [
-            'dest' => '\Modules\Dashboard\Controller\ApiController:apiBoardCreate',
-            'verb' => RouteVerb::PUT,
+            'dest'       => '\Modules\Dashboard\Controller\ApiController:apiBoardCreate',
+            'verb'       => RouteVerb::PUT,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::CREATE,
-                'state' => PermissionState::BOARD,
+                'type'   => PermissionType::CREATE,
+                'state'  => PermissionState::BOARD,
             ],
         ],
     ],
     '^.*/dashboard/board/component(\?.*|$)' => [
         [
-            'dest' => '\Modules\Dashboard\Controller\ApiController:apiComponentAdd',
-            'verb' => RouteVerb::PUT,
+            'dest'       => '\Modules\Dashboard\Controller\ApiController:apiComponentAdd',
+            'verb'       => RouteVerb::PUT,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::CREATE,
-                'state' => PermissionState::COMPONENT,
+                'type'   => PermissionType::CREATE,
+                'state'  => PermissionState::COMPONENT,
             ],
         ],
     ],

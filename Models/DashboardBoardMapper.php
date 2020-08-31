@@ -48,10 +48,10 @@ final class DashboardBoardMapper extends DataMapperAbstract
      */
     protected static array $hasMany = [
         'components' => [
-            'mapper' => DashboardComponentMapper::class,
-            'table'  => 'dashboard_component',
+            'mapper'   => DashboardComponentMapper::class,
+            'table'    => 'dashboard_component',
             'external' => 'dashboard_component_board',
-            'self'   => null,
+            'self'     => null,
         ],
     ];
 
