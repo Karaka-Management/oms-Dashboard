@@ -28,7 +28,7 @@ abstract class PermissionState extends Enum
 {
     public const DASHBOARD = 1;
 
-    public const BOARD     = 2;
+    public const BOARD = 2;
 
     public const COMPONENT = 3;
 }
