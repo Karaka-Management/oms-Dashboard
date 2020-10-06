@@ -21,11 +21,11 @@ use Modules\Dashboard\Models\DashboardBoardMapper;
 use Modules\Dashboard\Models\DashboardBoardStatus;
 use Modules\Dashboard\Models\DashboardComponent;
 use Modules\Dashboard\Models\DashboardComponentMapper;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Api controller for the dashboard module.
@@ -54,7 +54,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    private function validateBoardCreate(RequestAbstract $request): array
+    private function validateBoardCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (($val['title'] = empty($request->getData('title')))) {
@@ -77,7 +77,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null): void
+    public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateBoardCreate($request))) {
             $response->set($request->getUri()->__toString(), new FormValidation($val));
@@ -100,7 +100,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    private function createBoardFromRequest(RequestAbstract $request): DashboardBoard
+    private function createBoardFromRequest(RequestAbstract $request) : DashboardBoard
     {
         $board = new DashboardBoard();
         $board->setTitle((string) ($request->getData('title') ?? ''));
@@ -119,7 +119,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    private function validateComponentCreate(RequestAbstract $request): array
+    private function validateComponentCreate(RequestAbstract $request) : array
     {
         $val = [];
         if (($val['board'] = empty($request->getData('board')))
@@ -144,7 +144,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null): void
+    public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateComponentCreate($request))) {
             $response->set($request->getUri()->__toString(), new FormValidation($val));
@@ -167,7 +167,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    private function createComponentFromRequest(RequestAbstract $request): DashboardComponent
+    private function createComponentFromRequest(RequestAbstract $request) : DashboardComponent
     {
         $component = new DashboardComponent();
         $component->setBoard((int) ($request->getData('board') ?? 0));
@@ -190,7 +190,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, $data = null): void
+    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
     }
 }
