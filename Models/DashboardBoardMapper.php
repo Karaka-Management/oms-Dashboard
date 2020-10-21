@@ -50,8 +50,8 @@ final class DashboardBoardMapper extends DataMapperAbstract
         'components' => [
             'mapper'   => DashboardComponentMapper::class,
             'table'    => 'dashboard_component',
-            'external' => 'dashboard_component_board',
-            'self'     => null,
+            'self' => 'dashboard_component_board',
+            'external'     => null,
         ],
     ];
 
@@ -64,7 +64,7 @@ final class DashboardBoardMapper extends DataMapperAbstract
     protected static array $belongsTo = [
         'account' => [
             'mapper' => AccountMapper::class,
-            'self'   => 'dashboard_board_account',
+            'external'   => 'dashboard_board_account',
         ],
     ];
 
