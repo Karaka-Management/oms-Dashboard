@@ -40,7 +40,7 @@ class DashboardBoard implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected string $title = '';
+    public string $title = '';
 
     /**
      * Account.
@@ -102,32 +102,6 @@ class DashboardBoard implements \JsonSerializable
     public function setAccount($id) : void
     {
         $this->account = $id;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getTitle() : string
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title Title
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setTitle(string $title) : void
-    {
-        $this->title = $title;
     }
 
     /**

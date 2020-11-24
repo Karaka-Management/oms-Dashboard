@@ -80,14 +80,14 @@ final class ApiController extends Controller
     public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateBoardCreate($request))) {
-            $response->set($request->getUri()->__toString(), new FormValidation($val));
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
+            $response->set($request->uri->__toString(), new FormValidation($val));
+            $response->header->status = RequestStatusCode::R_400;
 
             return;
         }
 
         $board = $this->createBoardFromRequest($request);
-        $this->createModel($request->getHeader()->getAccount(), $board, DashboardBoardMapper::class, 'board', $request->getOrigin());
+        $this->createModel($request->header->account, $board, DashboardBoardMapper::class, 'board', $request->getOrigin());
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Board', 'Board successfully created.', $board);
     }
 
@@ -103,8 +103,8 @@ final class ApiController extends Controller
     private function createBoardFromRequest(RequestAbstract $request) : DashboardBoard
     {
         $board = new DashboardBoard();
-        $board->setTitle((string) ($request->getData('title') ?? ''));
-        $board->setAccount($request->getHeader()->getAccount());
+        $board->title = (string) ($request->getData('title') ?? '');
+        $board->setAccount($request->header->account);
         $board->setStatus(DashboardBoardStatus::ACTIVE);
 
         return $board;
@@ -147,14 +147,14 @@ final class ApiController extends Controller
     public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
         if (!empty($val = $this->validateComponentCreate($request))) {
-            $response->set($request->getUri()->__toString(), new FormValidation($val));
-            $response->getHeader()->setStatusCode(RequestStatusCode::R_400);
+            $response->set($request->uri->__toString(), new FormValidation($val));
+            $response->header->status = RequestStatusCode::R_400;
 
             return;
         }
 
         $component = $this->createComponentFromRequest($request);
-        $this->createModel($request->getHeader()->getAccount(), $component, DashboardComponentMapper::class, 'component', $request->getOrigin());
+        $this->createModel($request->header->account, $component, DashboardComponentMapper::class, 'component', $request->getOrigin());
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Component', 'Component successfully created.', $component);
     }
 

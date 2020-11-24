@@ -62,7 +62,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $board = DashboardBoardMapper::getFor($request->getHeader()->getAccount(), 'account');
+        $board = DashboardBoardMapper::getFor($request->header->account, 'account');
 
         if ($board instanceof NullDashboardBoard) {
             $board = DashboardBoardMapper::get(1);
