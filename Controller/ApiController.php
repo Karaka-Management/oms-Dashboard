@@ -102,7 +102,7 @@ final class ApiController extends Controller
      */
     private function createBoardFromRequest(RequestAbstract $request) : DashboardBoard
     {
-        $board = new DashboardBoard();
+        $board        = new DashboardBoard();
         $board->title = (string) ($request->getData('title') ?? '');
         $board->setAccount($request->header->account);
         $board->setStatus(DashboardBoardStatus::ACTIVE);
