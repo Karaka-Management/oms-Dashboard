@@ -29,14 +29,6 @@ use phpOMS\Views\View;
  * @license OMS License 1.0
  * @link    https://orange-management.org
  * @since   1.0.0
- *
- * @todo Orange-Management/oms-Dashboard#3
- *  Default dashboard styles
- *  Allow default dashboard templates which users can select
- *
- * @todo Orange-Management/oms-Dashboard#4
- *  [Bug] Drag&Drop element sometimes disappear on drop
- *  When you move the drag and drop elements sometimes (maybe 5%) of the time they disappear on drop. It seems like they cannot be inserted in the DOM and are gone.
  */
 final class BackendController extends Controller
 {
@@ -48,10 +40,6 @@ final class BackendController extends Controller
      * @param mixed            $data     Generic data
      *
      * @return RenderableInterface
-     *
-     * @todo Orange-Management/Modules#57
-     *  Users should be able to customize their dashboard.
-     *  This includes drag and drop and module selection.
      *
      * @since 1.0.0
      * @codeCoverageIgnore
