@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\Dashboard\Controller\ApiController:apiBoardCreate',
             'verb'       => RouteVerb::PUT,
             'permission' => [
-                'module' => ApiController::MODULE_NAME,
+                'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
                 'state'  => PermissionState::BOARD,
             ],
@@ -34,7 +34,7 @@ return [
             'dest'       => '\Modules\Dashboard\Controller\ApiController:apiComponentAdd',
             'verb'       => RouteVerb::PUT,
             'permission' => [
-                'module' => ApiController::MODULE_NAME,
+                'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
                 'state'  => PermissionState::COMPONENT,
             ],
