@@ -24,4 +24,15 @@ namespace Modules\Dashboard\Models;
  */
 final class NullDashboardComponent extends DashboardComponent
 {
+	/**
+     * Constructor
+     *
+     * @param int $id Model id
+     *
+     * @since 1.0.0
+     */
+    public function __construct(int $id = 0)
+    {
+        $this->id = $id;
+    }
 }
