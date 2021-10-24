@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Orange Management
  *
@@ -11,7 +10,6 @@
  * @version   1.0.0
  * @link      https://orange-management.org
  */
-
 declare(strict_types=1);
 
 namespace Modules\Dashboard\Controller;
@@ -96,7 +94,7 @@ final class ApiController extends Controller
     {
         $board        = new DashboardBoard();
         $board->title = (string) ($request->getData('title') ?? '');
-        $board->setAccount($request->header->account);
+        $board->account = $request->header->account;
         $board->setStatus(DashboardBoardStatus::ACTIVE);
 
         return $board;
@@ -162,9 +160,9 @@ final class ApiController extends Controller
     private function createComponentFromRequest(RequestAbstract $request) : DashboardComponent
     {
         $component = new DashboardComponent();
-        $component->setBoard((int) ($request->getData('board') ?? 0));
-        $component->setOrder((int) ($request->getData('order') ?? 0));
-        $component->setModule((string) ($request->getData('module') ?? ''));
+        $component->board = (int) ($request->getData('board') ?? 0);
+        $component->order = (int) ($request->getData('order') ?? 0);
+        $component->module = (string) ($request->getData('module') ?? '');
 
         return $component;
     }

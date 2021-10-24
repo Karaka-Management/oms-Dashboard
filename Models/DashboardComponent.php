@@ -38,7 +38,7 @@ class DashboardComponent implements \JsonSerializable
      * @var int
      * @since 1.0.0
      */
-    protected int $order = 0;
+    public int $order = 0;
 
     /**
      * Board.
@@ -46,7 +46,7 @@ class DashboardComponent implements \JsonSerializable
      * @var int|DashboardBoard
      * @since 1.0.0
      */
-    protected $board = 0;
+    public int | DashboardBoard $board = 0;
 
     /**
      * Module.
@@ -54,7 +54,7 @@ class DashboardComponent implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected string $module = '';
+    public string $module = '';
 
     /**
      * Component.
@@ -62,7 +62,7 @@ class DashboardComponent implements \JsonSerializable
      * @var string
      * @since 1.0.0
      */
-    protected string $component = '';
+    public string $component = '';
 
     /**
      * Get id
@@ -74,110 +74,6 @@ class DashboardComponent implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Get order
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getOrder() : int
-    {
-        return $this->order;
-    }
-
-    /**
-     * Set order
-     *
-     * @param int $order Order
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setOrder(int $order) : void
-    {
-        $this->order = $order;
-    }
-
-    /**
-     * Get component
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getComponent() : string
-    {
-        return $this->component;
-    }
-
-    /**
-     * Set component
-     *
-     * @param string $component Component
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setComponent(string $component) : void
-    {
-        $this->component = $component;
-    }
-
-    /**
-     * Get module
-     *
-     * @return string
-     *
-     * @since 1.0.0
-     */
-    public function getModule() : string
-    {
-        return $this->module;
-    }
-
-    /**
-     * Set module
-     *
-     * @param string $module Module
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setModule(string $module) : void
-    {
-        $this->module = $module;
-    }
-
-    /**
-     * Get board
-     *
-     * @return int|DashboardBoard
-     *
-     * @since 1.0.0
-     */
-    public function getBoard()
-    {
-        return $this->board;
-    }
-
-    /**
-     * Set board
-     *
-     * @param mixed $id Board
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setBoard($id) : void
-    {
-        $this->board = $id;
     }
 
     /**

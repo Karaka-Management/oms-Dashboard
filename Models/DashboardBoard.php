@@ -48,7 +48,7 @@ class DashboardBoard implements \JsonSerializable
      * @var null|int
      * @since 1.0.0
      */
-    protected $account = null;
+    public ?int $account = null;
 
     /**
      * Status.
@@ -76,32 +76,6 @@ class DashboardBoard implements \JsonSerializable
     public function getId() : int
     {
         return $this->id;
-    }
-
-    /**
-     * Get account
-     *
-     * @return null|int
-     *
-     * @since 1.0.0
-     */
-    public function getAccount()
-    {
-        return $this->account;
-    }
-
-    /**
-     * Set account
-     *
-     * @param mixed $id Account
-     *
-     * @return void
-     *
-     * @since 1.0.0
-     */
-    public function setAccount($id) : void
-    {
-        $this->account = $id;
     }
 
     /**
