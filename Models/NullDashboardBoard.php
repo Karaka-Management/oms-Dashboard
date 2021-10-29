@@ -24,7 +24,7 @@ namespace Modules\Dashboard\Models;
  */
 final class NullDashboardBoard extends DashboardBoard
 {
-	/**
+    /**
      * Constructor
      *
      * @param int $id Model id

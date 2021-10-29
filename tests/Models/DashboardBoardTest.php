@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace Modules\Dashboard\tests\Models;
 
 use Modules\Dashboard\Models\DashboardBoard;
-use Modules\Dashboard\Models\DashboardComponent;
 use Modules\Dashboard\Models\DashboardBoardStatus;
+use Modules\Dashboard\Models\DashboardComponent;
 
 /**
  * @internal
@@ -41,7 +41,7 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
     {
         self::assertEquals(0, $this->board->getId());
         self::assertEquals('', $this->board->title);
-        self::assertEquals(null, $this->board->account);
+        self::assertNull($this->board->account);
         self::assertEquals([], $this->board->getComponents());
         self::assertEquals(DashboardBoardStatus::ACTIVE, $this->board->getStatus());
         self::assertInstanceOf('\Modules\Dashboard\Models\NullDashboardComponent', $this->board->getComponent(0));
@@ -86,17 +86,17 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
      */
     public function testSerialize() : void
     {
-        $this->board->title = 'Title';
+        $this->board->title   = 'Title';
         $this->board->account = 2;
         $this->board->setStatus(DashboardBoardStatus::INACTIVE);
 
         self::assertEquals(
             [
-                'id'       => 0,
-                'account'    => 2,
-                'title'      => 'Title',
+                'id'          => 0,
+                'account'     => 2,
+                'title'       => 'Title',
                 'status'      => DashboardBoardStatus::INACTIVE,
-                'components' => [],
+                'components'  => [],
             ],
             $this->board->jsonSerialize()
         );

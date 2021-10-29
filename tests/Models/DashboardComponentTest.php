@@ -50,17 +50,17 @@ final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
      */
     public function testSerialize() : void
     {
-        $this->component->board = 3;
-        $this->component->order = 2;
-        $this->component->module = 'Test';
+        $this->component->board     = 3;
+        $this->component->order     = 2;
+        $this->component->module    = 'Test';
         $this->component->component = 'Component';
 
         self::assertEquals(
             [
-                'id'       => 0,
-                'board'    => 3,
-                'order'    => 2,
-                'module'    => 'Test',
+                'id'           => 0,
+                'board'        => 3,
+                'order'        => 2,
+                'module'       => 'Test',
                 'component'    => 'Component',
             ],
             $this->component->jsonSerialize()
