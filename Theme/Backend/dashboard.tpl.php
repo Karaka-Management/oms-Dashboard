@@ -1,6 +1,9 @@
 <div class="row">
-<?php $panels = $this->getData('panels'); ?>
-<?php foreach ($panels as $panel) : ?>
-    <?= $panel->render(); ?>
-<?php endforeach; ?>
+    <?php
+        $panels = $this->getData('panels');
+        if (empty($panels)) : ?>
+    <div class="emptyPage"></div>
+    <?php else: foreach ($panels as $panel) : ?>
+        <?= $panel->render(); ?>
+    <?php endforeach; endif; ?>
 </div>

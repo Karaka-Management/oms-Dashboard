@@ -24,6 +24,7 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
+use Modules\Admin\Models\NullAccount;
 
 /**
  * Api controller for the dashboard module.
@@ -94,7 +95,7 @@ final class ApiController extends Controller
     {
         $board          = new DashboardBoard();
         $board->title   = (string) ($request->getData('title') ?? '');
-        $board->account = $request->header->account;
+        $board->account = new NullAccount($request->header->account);
         $board->setStatus(DashboardBoardStatus::ACTIVE);
 
         return $board;

@@ -14,6 +14,8 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Models;
 
+use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
@@ -45,10 +47,10 @@ class DashboardBoard implements \JsonSerializable
     /**
      * Account.
      *
-     * @var null|int
+     * @var Account
      * @since 1.0.0
      */
-    public ?int $account = null;
+    public Account $account;
 
     /**
      * Status.
@@ -65,6 +67,16 @@ class DashboardBoard implements \JsonSerializable
      * @since 1.0.0
      */
     protected array $components = [];
+
+    /**
+     * Cosntructor.
+     *
+     * @since 1.0.0
+     */
+    public function __construct()
+    {
+        $this->account = new NullAccount();
+    }
 
     /**
      * Get id
