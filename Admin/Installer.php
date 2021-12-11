@@ -47,6 +47,6 @@ final class Installer extends InstallerAbstract
         parent::install($dbPool, $info, $cfgHandler);
 
         $board = new DashboardBoard();
-        DashboardBoardMapper::create($board);
+        DashboardBoardMapper::create()->execute($board);
     }
 }

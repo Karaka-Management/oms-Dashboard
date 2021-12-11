@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Models;
 
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Mapper class.
@@ -24,7 +24,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class DashboardComponentMapper extends DataMapperAbstract
+final class DashboardComponentMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -32,7 +32,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'dashboard_component_id'        => ['name' => 'dashboard_component_id',        'type' => 'int',    'internal' => 'id'],
         'dashboard_component_order'     => ['name' => 'dashboard_component_order',     'type' => 'int',    'internal' => 'order'],
         'dashboard_component_module'    => ['name' => 'dashboard_component_module',    'type' => 'string', 'internal' => 'module'],
@@ -46,7 +46,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'board' => [
             'mapper'     => DashboardBoardMapper::class,
             'external'   => 'dashboard_component_board',
@@ -59,7 +59,7 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'dashboard_component';
+    public const TABLE = 'dashboard_component';
 
     /**
      * Primary field name.
@@ -67,5 +67,5 @@ final class DashboardComponentMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'dashboard_component_id';
+    public const PRIMARYFIELD ='dashboard_component_id';
 }

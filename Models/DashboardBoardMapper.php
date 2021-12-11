@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\Dashboard\Models;
 
 use Modules\Admin\Models\AccountMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Mapper class.
@@ -25,7 +25,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class DashboardBoardMapper extends DataMapperAbstract
+final class DashboardBoardMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -33,7 +33,7 @@ final class DashboardBoardMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'dashboard_board_id'      => ['name' => 'dashboard_board_id',      'type' => 'int',    'internal' => 'id'],
         'dashboard_board_title'   => ['name' => 'dashboard_board_title',   'type' => 'string', 'internal' => 'title'],
         'dashboard_board_status'  => ['name' => 'dashboard_board_status',  'type' => 'int',    'internal' => 'status'],
@@ -46,7 +46,7 @@ final class DashboardBoardMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, table:string, self?:?string, external?:?string, column?:string}>
      * @since 1.0.0
      */
-    protected static array $hasMany = [
+    public const HAS_MANY = [
         'components' => [
             'mapper'       => DashboardComponentMapper::class,
             'table'        => 'dashboard_component',
@@ -61,7 +61,7 @@ final class DashboardBoardMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'account' => [
             'mapper'     => AccountMapper::class,
             'external'   => 'dashboard_board_account',
@@ -74,7 +74,7 @@ final class DashboardBoardMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'dashboard_board';
+    public const TABLE = 'dashboard_board';
 
     /**
      * Primary field name.
@@ -82,5 +82,5 @@ final class DashboardBoardMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'dashboard_board_id';
+    public const PRIMARYFIELD ='dashboard_board_id';
 }
