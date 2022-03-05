@@ -66,12 +66,9 @@ final class BackendController extends Controller
             }
 
             $module = $this->app->moduleManager->get($component->getModule());
-
-            if (!($module instanceof DashboardElementInterface)) {
-                continue;
+            if ($module instanceof DashboardElementInterface) {
+                $panels[] = $module->viewDashboard($request, $response, $data);
             }
-
-            $panels[] = $module->viewDashboard($request, $response, $data);
         }
 
         $view->addData('panels', $panels);
