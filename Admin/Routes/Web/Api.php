@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 use Modules\Dashboard\Controller\ApiController;
-use Modules\Dashboard\Models\PermissionState;
+use Modules\Dashboard\Models\PermissionCategory;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
@@ -25,7 +25,7 @@ return [
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
-                'state'  => PermissionState::BOARD,
+                'state'  => PermissionCategory::BOARD,
             ],
         ],
     ],
@@ -36,7 +36,7 @@ return [
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
-                'state'  => PermissionState::COMPONENT,
+                'state'  => PermissionCategory::COMPONENT,
             ],
         ],
     ],
