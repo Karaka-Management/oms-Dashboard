@@ -100,7 +100,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request  = new HttpRequest(new HttpUri(''));
 
         $request->header->account = 1;
-        $request->setData('title', 'TestBoard');
+        $request->setData('title', 'Default Board');
 
         $this->module->apiBoardCreate($request, $response);
         self::assertGreaterThan(0, $response->get('')['response']->getId());
