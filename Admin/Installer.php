@@ -101,7 +101,7 @@ final class Installer extends InstallerAbstract
         ];
 
         foreach ($dashboardData as $dashboard) {
-            switch ($dashboard['component']) {
+            switch ($dashboard['type']) {
                 case 'component':
                     $result['component'][] = self::createComponent($app->dbPool, $dashboard);
                     break;

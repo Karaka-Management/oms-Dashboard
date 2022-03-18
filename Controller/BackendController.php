@@ -51,7 +51,10 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
-        $board = DashboardBoardMapper::get()->where('account', $request->header->account)->execute();
+        $board = DashboardBoardMapper::get()
+            ->with('components')
+            ->where('account', $request->header->account)
+            ->execute();
 
         if ($board instanceof NullDashboardBoard) {
             $board = DashboardBoardMapper::get()->where('id', 1)->execute();
@@ -61,11 +64,11 @@ final class BackendController extends Controller
         $boardComponents = $board->getComponents();
 
         foreach ($boardComponents as $component) {
-            if (!$this->app->moduleManager->isActive($component->getModule())) {
+            if (!$this->app->moduleManager->isActive($component->module)) {
                 continue;
             }
 
-            $module = $this->app->moduleManager->get($component->getModule());
+            $module = $this->app->moduleManager->get($component->module);
             if ($module instanceof DashboardElementInterface) {
                 $panels[] = $module->viewDashboard($request, $response, $data);
             }
