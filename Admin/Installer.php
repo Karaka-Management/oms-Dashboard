@@ -19,13 +19,14 @@ use Modules\Dashboard\Models\DashboardBoard;
 use Modules\Dashboard\Models\DashboardBoardMapper;
 use Modules\Dashboard\Models\DashboardBoardStatus;
 use Modules\Dashboard\Models\DashboardComponent;
-use Modules\Dashboard\Models\DashboardComponentMapper;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Config\SettingsInterface;
-use phpOMS\DataStorage\Database\DatabasePool;
+use phpOMS\Message\Http\HttpRequest;
+use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\InstallerAbstract;
 use phpOMS\Module\ModuleInfo;
 use phpOMS\System\File\PathException;
+use phpOMS\Uri\HttpUri;
 
 /**
  * Installer class.
@@ -100,10 +101,22 @@ final class Installer extends InstallerAbstract
             'component' => [],
         ];
 
+        $apiApp = new class() extends ApplicationAbstract
+        {
+            protected string $appName = 'Api';
+        };
+
+        $apiApp->dbPool = $app->dbPool;
+        $apiApp->orgId = $app->orgId;
+        $apiApp->accountManager = $app->accountManager;
+        $apiApp->appSettings = $app->appSettings;
+        $apiApp->moduleManager = $app->moduleManager;
+        $apiApp->eventManager = $app->eventManager;
+
         foreach ($dashboardData as $dashboard) {
             switch ($dashboard['type']) {
                 case 'component':
-                    $result['component'][] = self::createComponent($app->dbPool, $dashboard);
+                    $result['component'][] = self::createComponent($apiApp, $dashboard);
                     break;
                 default:
             }
@@ -115,22 +128,27 @@ final class Installer extends InstallerAbstract
     /**
      * Create board component.
      *
-     * @param DatabasePool $dbPool Database instance
+     * @param ApplicationAbstract $app  Application
      * @param array        $data   Type info
      *
-     * @return EditorDocType
+     * @return DashboardComponent
      *
      * @since 1.0.0
      */
-    private static function createComponent(DatabasePool $dbPool, array $data) : DashboardComponent
+    private static function createComponent(ApplicationAbstract $app, array $data) : DashboardComponent
     {
-        $component         = new DashboardComponent();
-        $component->board  = (int) ($data['board'] ?? 0);
-        $component->order  = (int) ($data['order'] ?? 0);
-        $component->module = (string) ($data['module'] ?? '');
+        $module = $app->moduleManager->get('Workflow');
 
-        DashboardComponentMapper::create()->execute($component);
+        $response = new HttpResponse();
+        $request  = new HttpRequest(new HttpUri(''));
 
-        return $component;
+        $request->header->account = 1;
+        $request->setData('board', (int) ($data['board'] ?? 0));
+        $request->setData('order', (int) ($data['order'] ?? 0));
+        $request->setData('module', (string) ($data['module'] ?? ''));
+
+        $module->apiComponentCreate($request, $response);
+
+        return $response->get('')['response'];
     }
 }
