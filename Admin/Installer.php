@@ -56,6 +56,13 @@ final class Installer extends InstallerAbstract
         self::installDefault();
     }
 
+    /**
+     * Install default dashboard
+     *
+     * @return void
+     *
+     * @since 1.0.0
+     */
     private static function installDefault() : void
     {
         $board          = new DashboardBoard();
@@ -106,12 +113,12 @@ final class Installer extends InstallerAbstract
             protected string $appName = 'Api';
         };
 
-        $apiApp->dbPool = $app->dbPool;
-        $apiApp->orgId = $app->orgId;
+        $apiApp->dbPool         = $app->dbPool;
+        $apiApp->orgId          = $app->orgId;
         $apiApp->accountManager = $app->accountManager;
-        $apiApp->appSettings = $app->appSettings;
-        $apiApp->moduleManager = $app->moduleManager;
-        $apiApp->eventManager = $app->eventManager;
+        $apiApp->appSettings    = $app->appSettings;
+        $apiApp->moduleManager  = $app->moduleManager;
+        $apiApp->eventManager   = $app->eventManager;
 
         foreach ($dashboardData as $dashboard) {
             switch ($dashboard['type']) {
@@ -129,7 +136,7 @@ final class Installer extends InstallerAbstract
      * Create board component.
      *
      * @param ApplicationAbstract $app  Application
-     * @param array        $data   Type info
+     * @param array               $data Type info
      *
      * @return DashboardComponent
      *
