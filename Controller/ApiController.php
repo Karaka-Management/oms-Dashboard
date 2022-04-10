@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Modules\Dashboard\Controller;
 
+use Modules\Admin\Models\NullAccount;
 use Modules\Dashboard\Models\DashboardBoard;
 use Modules\Dashboard\Models\DashboardBoardMapper;
 use Modules\Dashboard\Models\DashboardBoardStatus;
@@ -24,7 +25,6 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use Modules\Admin\Models\NullAccount;
 
 /**
  * Api controller for the dashboard module.
