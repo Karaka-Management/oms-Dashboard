@@ -144,7 +144,7 @@ final class Installer extends InstallerAbstract
      */
     private static function createComponent(ApplicationAbstract $app, array $data) : DashboardComponent
     {
-        $module = $app->moduleManager->get('Workflow');
+        $module = $app->moduleManager->get('Dashboard');
 
         $response = new HttpResponse();
         $request  = new HttpRequest(new HttpUri(''));
