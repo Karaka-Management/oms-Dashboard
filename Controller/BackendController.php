@@ -2,7 +2,7 @@
 /**
  * Karaka
  *
- * PHP Version 8.0
+ * PHP Version 8.1
  *
  * @package   Modules\Dashboard
  * @copyright Dennis Eichhorn
@@ -51,12 +51,14 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
 
+        /** @var \Modules\Dashboard\Models\DashboardBoard $board */
         $board = DashboardBoardMapper::get()
             ->with('components')
             ->where('account', $request->header->account)
             ->execute();
 
         if ($board instanceof NullDashboardBoard) {
+            /** @var \Modules\Dashboard\Models\DashboardBoard $board */
             $board = DashboardBoardMapper::get()->where('id', 1)->execute();
         }
 
