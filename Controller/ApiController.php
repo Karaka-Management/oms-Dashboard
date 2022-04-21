@@ -68,7 +68,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateBoardCreate($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
@@ -135,7 +135,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateComponentCreate($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
@@ -181,7 +181,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
     }
 }
