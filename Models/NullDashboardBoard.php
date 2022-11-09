@@ -35,4 +35,12 @@ final class NullDashboardBoard extends DashboardBoard
     {
         $this->id = $id;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize() : mixed
+    {
+        return ['id' => $this->id];
+    }
 }
