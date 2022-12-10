@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "Dashboard",
-        "uri": "{/prefix}?{?}",
+        "uri": "{/lang}/{/app}/?{?}",
         "target": "self",
         "icon": null,
         "order": 1,
