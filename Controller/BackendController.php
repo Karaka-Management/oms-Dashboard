@@ -55,6 +55,7 @@ final class BackendController extends Controller
         $board = DashboardBoardMapper::get()
             ->with('components')
             ->where('account', $request->header->account)
+            ->limit(1)
             ->execute();
 
         if ($board instanceof NullDashboardBoard) {
