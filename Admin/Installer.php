@@ -120,6 +120,7 @@ final class Installer extends InstallerAbstract
         $apiApp->moduleManager  = $app->moduleManager;
         $apiApp->eventManager   = $app->eventManager;
 
+        /** @var array $dashboardData */
         foreach ($dashboardData as $dashboard) {
             switch ($dashboard['type']) {
                 case 'component':
@@ -138,11 +139,11 @@ final class Installer extends InstallerAbstract
      * @param ApplicationAbstract $app  Application
      * @param array               $data Type info
      *
-     * @return DashboardComponent
+     * @return array
      *
      * @since 1.0.0
      */
-    private static function createComponent(ApplicationAbstract $app, array $data) : DashboardComponent
+    private static function createComponent(ApplicationAbstract $app, array $data) : array
     {
         $module = $app->moduleManager->get('Dashboard');
 
@@ -156,6 +157,13 @@ final class Installer extends InstallerAbstract
 
         $module->apiComponentCreate($request, $response);
 
-        return $response->get('')['response'];
+        $responseData = $response->get('');
+        if (!\is_array($responseData)) {
+            return [];
+        }
+
+        return !\is_array($responseData['response'])
+            ? $responseData['response']->toArray()
+            : $responseData['response'];
     }
 }
