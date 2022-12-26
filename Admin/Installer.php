@@ -18,7 +18,6 @@ use Modules\Admin\Models\NullAccount;
 use Modules\Dashboard\Models\DashboardBoard;
 use Modules\Dashboard\Models\DashboardBoardMapper;
 use Modules\Dashboard\Models\DashboardBoardStatus;
-use Modules\Dashboard\Models\DashboardComponent;
 use phpOMS\Application\ApplicationAbstract;
 use phpOMS\Config\SettingsInterface;
 use phpOMS\Message\Http\HttpRequest;
