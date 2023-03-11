@@ -82,5 +82,5 @@ final class DashboardBoardMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='dashboard_board_id';
+    public const PRIMARYFIELD = 'dashboard_board_id';
 }
