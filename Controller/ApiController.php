@@ -6,7 +6,7 @@
  *
  * @package   Modules\Dashboard
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -30,7 +30,7 @@ use phpOMS\Model\Message\FormValidation;
  * Api controller for the dashboard module.
  *
  * @package Modules\Dashboard
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -94,7 +94,7 @@ final class ApiController extends Controller
     private function createBoardFromRequest(RequestAbstract $request) : DashboardBoard
     {
         $board          = new DashboardBoard();
-        $board->title   = (string) ($request->getData('title') ?? '');
+        $board->title   = $request->getDataString('title') ?? '';
         $board->account = new NullAccount($request->header->account);
         $board->setStatus(DashboardBoardStatus::ACTIVE);
 
@@ -161,9 +161,9 @@ final class ApiController extends Controller
     private function createComponentFromRequest(RequestAbstract $request) : DashboardComponent
     {
         $component         = new DashboardComponent();
-        $component->board  = (int) ($request->getData('board') ?? 0);
-        $component->order  = (int) ($request->getData('order') ?? 0);
-        $component->module = (string) ($request->getData('module') ?? '');
+        $component->board  = $request->getDataInt('board') ?? 0;
+        $component->order  = $request->getDataInt('order') ?? 0;
+        $component->module = $request->getDataString('module') ?? '';
 
         return $component;
     }
