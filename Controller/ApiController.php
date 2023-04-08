@@ -48,7 +48,7 @@ final class ApiController extends Controller
     private function validateBoardCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['title'] = empty($request->getData('title')))) {
+        if (($val['title'] = !$request->hasData('title'))) {
             return $val;
         }
 
@@ -113,8 +113,8 @@ final class ApiController extends Controller
     private function validateComponentCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['board'] = empty($request->getData('board')))
-            || ($val['module'] = empty($request->getData('module')))
+        if (($val['board'] = !$request->hasData('board'))
+            || ($val['module'] = !$request->hasData('module'))
         ) {
             return $val;
         }
