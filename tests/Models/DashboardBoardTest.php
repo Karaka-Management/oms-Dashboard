@@ -41,7 +41,7 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
      */
     public function testDefault() : void
     {
-        self::assertEquals(0, $this->board->getId());
+        self::assertEquals(0, $this->board->id);
         self::assertEquals('', $this->board->title);
         self::assertEquals([], $this->board->getComponents());
         self::assertEquals(DashboardBoardStatus::ACTIVE, $this->board->getStatus());

@@ -105,7 +105,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('title', 'Default Board');
 
         $this->module->apiBoardCreate($request, $response);
-        self::assertGreaterThan(0, $response->get('')['response']->getId());
+        self::assertGreaterThan(0, $response->get('')['response']->id);
     }
 
     /**
@@ -139,7 +139,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('module', 'TestModule');
 
         $this->module->apiComponentCreate($request, $response);
-        self::assertGreaterThan(0, $response->get('')['response']->getId());
+        self::assertGreaterThan(0, $response->get('')['response']->id);
     }
 
     /**

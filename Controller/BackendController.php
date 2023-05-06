@@ -58,7 +58,7 @@ final class BackendController extends Controller
             ->limit(1)
             ->execute();
 
-        if ($board instanceof NullDashboardBoard) {
+        if ($board->id === 0) {
             /** @var \Modules\Dashboard\Models\DashboardBoard $board */
             $board = DashboardBoardMapper::get()->where('id', 1)->execute();
         }
