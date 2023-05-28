@@ -16,7 +16,6 @@ namespace Modules\Dashboard\Controller;
 
 use Modules\Dashboard\Models\DashboardBoardMapper;
 use Modules\Dashboard\Models\DashboardElementInterface;
-use Modules\Dashboard\Models\NullDashboardBoard;
 use phpOMS\Contract\RenderableInterface;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
