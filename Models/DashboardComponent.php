@@ -64,17 +64,6 @@ class DashboardComponent implements \JsonSerializable
      */
     public string $component = '';
 
-    /**
-     * Get id
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getId() : int
-    {
-        return $this->id;
-    }
 
     /**
      * {@inheritdoc}
