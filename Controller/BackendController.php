@@ -48,7 +48,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/Dashboard/Theme/Backend/dashboard');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1000301001, $request, $response);
 
         /** @var \Modules\Dashboard\Models\DashboardBoard $board */
         $board = DashboardBoardMapper::get()
@@ -76,7 +76,7 @@ final class BackendController extends Controller
             }
         }
 
-        $view->addData('panels', $panels);
+        $view->data['panels'] = $panels;
 
         return $view;
     }
