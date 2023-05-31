@@ -64,7 +64,6 @@ class DashboardComponent implements \JsonSerializable
      */
     public string $component = '';
 
-
     /**
      * {@inheritdoc}
      */
