@@ -58,7 +58,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
+     * @param array            $data     Generic data
      *
      * @return void
      *
@@ -66,7 +66,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
+    public function apiBoardCreate(RequestAbstract $request, ResponseAbstract $response, array $data = []) : void
     {
         if (!empty($val = $this->validateBoardCreate($request))) {
             $response->header->status = RequestStatusCode::R_400;
@@ -125,7 +125,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
+     * @param array            $data     Generic data
      *
      * @return void
      *
@@ -133,7 +133,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
+    public function apiComponentCreate(RequestAbstract $request, ResponseAbstract $response, array $data = []) : void
     {
         if (!empty($val = $this->validateComponentCreate($request))) {
             $response->header->status = RequestStatusCode::R_400;
@@ -171,7 +171,7 @@ final class ApiController extends Controller
      *
      * @param RequestAbstract  $request  Request
      * @param ResponseAbstract $response Response
-     * @param mixed            $data     Generic data
+     * @param array            $data     Generic data
      *
      * @return void
      *
@@ -179,7 +179,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
+    public function apiComponentAdd(RequestAbstract $request, ResponseAbstract $response, array $data = []) : void
     {
     }
 }
