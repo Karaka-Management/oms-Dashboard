@@ -23,7 +23,7 @@ final class NullDashboardComponentTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Modules\Dashboard\Models\NullDashboardComponent
-     * @group framework
+     * @group module
      */
     public function testNull() : void
     {
@@ -32,11 +32,21 @@ final class NullDashboardComponentTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers Modules\Dashboard\Models\NullDashboardComponent
-     * @group framework
+     * @group module
      */
     public function testId() : void
     {
         $null = new NullDashboardComponent(2);
         self::assertEquals(2, $null->id);
+    }
+
+    /**
+     * @covers Modules\Dashboard\Models\NullDashboardComponent
+     * @group module
+     */
+    public function testJsonSerialize() : void
+    {
+        $null = new NullDashboardComponent(2);
+        self::assertEquals(['id' => 2], $null);
     }
 }
