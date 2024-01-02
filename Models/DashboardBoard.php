@@ -69,7 +69,7 @@ class DashboardBoard implements \JsonSerializable
     public array $components = [];
 
     /**
-     * Cosntructor.
+     * Constructor.
      *
      * @since 1.0.0
      */
