@@ -43,29 +43,9 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(0, $this->board->id);
         self::assertEquals('', $this->board->title);
         self::assertEquals([], $this->board->getComponents());
-        self::assertEquals(DashboardBoardStatus::ACTIVE, $this->board->getStatus());
+        self::assertEquals(DashboardBoardStatus::ACTIVE, $this->board->status);
         self::assertInstanceOf('\Modules\Admin\Models\NullAccount', $this->board->account);
         self::assertInstanceOf('\Modules\Dashboard\Models\NullDashboardComponent', $this->board->getComponent(0));
-    }
-
-    /**
-     * @covers Modules\Dashboard\Models\DashboardBoard
-     * @group module
-     */
-    public function testStatusInputOutput() : void
-    {
-        $this->board->setStatus(DashboardBoardStatus::INACTIVE);
-        self::assertEquals(DashboardBoardStatus::INACTIVE, $this->board->getStatus());
-    }
-
-    /**
-     * @covers Modules\Dashboard\Models\DashboardBoard
-     * @group module
-     */
-    public function testInvalidStatus() : void
-    {
-        $this->expectException(\phpOMS\Stdlib\Base\Exception\InvalidEnumValue::class);
-        $this->board->setStatus(999);
     }
 
     /**
@@ -89,15 +69,15 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
     {
         $this->board->title   = 'Title';
         $this->board->account = new NullAccount(2);
-        $this->board->setStatus(DashboardBoardStatus::INACTIVE);
+        $this->board->status  = DashboardBoardStatus::INACTIVE;
 
         self::assertEquals(
             [
-                'id'          => 0,
-                'account'     => $this->board->account,
-                'title'       => 'Title',
-                'status'      => DashboardBoardStatus::INACTIVE,
-                'components'  => [],
+                'id'         => 0,
+                'account'    => $this->board->account,
+                'title'      => 'Title',
+                'status'     => DashboardBoardStatus::INACTIVE,
+                'components' => [],
             ],
             $this->board->jsonSerialize()
         );

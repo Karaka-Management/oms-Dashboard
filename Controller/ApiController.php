@@ -94,7 +94,7 @@ final class ApiController extends Controller
         $board          = new DashboardBoard();
         $board->title   = $request->getDataString('title') ?? '';
         $board->account = new NullAccount($request->header->account);
-        $board->setStatus(DashboardBoardStatus::ACTIVE);
+        $board->status  = DashboardBoardStatus::ACTIVE;
 
         return $board;
     }

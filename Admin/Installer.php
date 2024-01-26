@@ -25,7 +25,6 @@ use phpOMS\Message\Http\HttpResponse;
 use phpOMS\Module\InstallerAbstract;
 use phpOMS\Module\ModuleInfo;
 use phpOMS\System\File\PathException;
-use phpOMS\Uri\HttpUri;
 
 /**
  * Installer class.
@@ -67,7 +66,7 @@ final class Installer extends InstallerAbstract
         $board          = new DashboardBoard();
         $board->title   = 'Default Board';
         $board->account = new NullAccount(1);
-        $board->setStatus(DashboardBoardStatus::ACTIVE);
+        $board->status  = DashboardBoardStatus::ACTIVE;
 
         DashboardBoardMapper::create()->execute($board);
     }
@@ -147,7 +146,7 @@ final class Installer extends InstallerAbstract
         $module = $app->moduleManager->get('Dashboard');
 
         $response = new HttpResponse();
-        $request  = new HttpRequest(new HttpUri(''));
+        $request  = new HttpRequest();
 
         $request->header->account = 1;
         $request->setData('board', (int) ($data['board'] ?? 0));

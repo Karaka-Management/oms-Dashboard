@@ -51,8 +51,8 @@ final class DashboardComponentMapper extends DataMapperFactory
      */
     public const BELONGS_TO = [
         'board' => [
-            'mapper'     => DashboardBoardMapper::class,
-            'external'   => 'dashboard_component_board',
+            'mapper'   => DashboardBoardMapper::class,
+            'external' => 'dashboard_component_board',
         ],
     ];
 

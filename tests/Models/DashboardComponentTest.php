@@ -57,11 +57,11 @@ final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(
             [
-                'id'           => 0,
-                'board'        => 3,
-                'order'        => 2,
-                'module'       => 'Test',
-                'component'    => 'Component',
+                'id'        => 0,
+                'board'     => 3,
+                'order'     => 2,
+                'module'    => 'Test',
+                'component' => 'Component',
             ],
             $this->component->jsonSerialize()
         );

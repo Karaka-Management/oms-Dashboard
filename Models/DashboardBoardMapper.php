@@ -51,10 +51,10 @@ final class DashboardBoardMapper extends DataMapperFactory
      */
     public const HAS_MANY = [
         'components' => [
-            'mapper'       => DashboardComponentMapper::class,
-            'table'        => 'dashboard_component',
-            'self'         => 'dashboard_component_board',
-            'external'     => null,
+            'mapper'   => DashboardComponentMapper::class,
+            'table'    => 'dashboard_component',
+            'self'     => 'dashboard_component_board',
+            'external' => null,
         ],
     ];
 
@@ -66,8 +66,8 @@ final class DashboardBoardMapper extends DataMapperFactory
      */
     public const BELONGS_TO = [
         'account' => [
-            'mapper'     => AccountMapper::class,
-            'external'   => 'dashboard_board_account',
+            'mapper'   => AccountMapper::class,
+            'external' => 'dashboard_board_account',
         ],
     ];
 

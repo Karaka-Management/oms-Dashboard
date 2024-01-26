@@ -16,7 +16,6 @@ namespace Modules\Dashboard\Models;
 
 use Modules\Admin\Models\Account;
 use Modules\Admin\Models\NullAccount;
-use phpOMS\Stdlib\Base\Exception\InvalidEnumValue;
 
 /**
  * DashboardBoard class.
@@ -76,38 +75,6 @@ class DashboardBoard implements \JsonSerializable
     public function __construct()
     {
         $this->account = new NullAccount();
-    }
-
-    /**
-     * Get status
-     *
-     * @return int
-     *
-     * @since 1.0.0
-     */
-    public function getStatus() : int
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set status
-     *
-     * @param int $status Task status
-     *
-     * @return void
-     *
-     * @throws InvalidEnumValue
-     *
-     * @since 1.0.0
-     */
-    public function setStatus(int $status) : void
-    {
-        if (!DashboardBoardStatus::isValidValue($status)) {
-            throw new InvalidEnumValue((string) $status);
-        }
-
-        $this->status = $status;
     }
 
     /**
