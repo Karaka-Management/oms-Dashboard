@@ -19,6 +19,7 @@ use Modules\Dashboard\Models\DashboardComponent;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Dashboard\Models\DashboardComponent::class)]
 final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
 {
     private DashboardComponent $component;
@@ -31,10 +32,7 @@ final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
         $this->component = new DashboardComponent();
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\DashboardComponent
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->component->id);
@@ -44,10 +42,7 @@ final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
         self::assertEquals('', $this->component->component);
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\DashboardComponent
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         $this->component->board     = 3;

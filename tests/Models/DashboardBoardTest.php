@@ -22,6 +22,7 @@ use Modules\Dashboard\Models\DashboardComponent;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Dashboard\Models\DashboardBoard::class)]
 final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
 {
     private DashboardBoard $board;
@@ -34,10 +35,7 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
         $this->board = new DashboardBoard();
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\DashboardBoard
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->board->id);
@@ -48,10 +46,7 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\Modules\Dashboard\Models\NullDashboardComponent', $this->board->getComponent(0));
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\DashboardBoard
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testComponentInputOutput() : void
     {
         $id = $this->board->addComponent($temp = new DashboardComponent());
@@ -61,10 +56,7 @@ final class DashboardBoardTest extends \PHPUnit\Framework\TestCase
         self::assertFalse($this->board->removeComponent($id));
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\DashboardBoard
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         $this->board->title   = 'Title';

@@ -19,31 +19,23 @@ use Modules\Dashboard\Models\NullDashboardBoard;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\Dashboard\Models\NullDashboardBoard::class)]
 final class NullDashboardBoardTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\Dashboard\Models\NullDashboardBoard
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\Dashboard\Models\DashboardBoard', new NullDashboardBoard());
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\NullDashboardBoard
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullDashboardBoard(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\Dashboard\Models\NullDashboardBoard
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullDashboardBoard(2);
