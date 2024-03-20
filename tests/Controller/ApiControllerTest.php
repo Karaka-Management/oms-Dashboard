@@ -92,7 +92,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Controller\ApiController
+     * @covers \Modules\Dashboard\Controller\ApiController
      * @group module
      */
     public function testApiBoardCreate() : void
@@ -108,7 +108,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Controller\ApiController
+     * @covers \Modules\Dashboard\Controller\ApiController
      * @group module
      */
     public function testApiBoardCreateInvalidData() : void
@@ -124,7 +124,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Controller\ApiController
+     * @covers \Modules\Dashboard\Controller\ApiController
      * @group module
      */
     public function testApiComponentCreate() : void
@@ -142,7 +142,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Controller\ApiController
+     * @covers \Modules\Dashboard\Controller\ApiController
      * @group module
      */
     public function testApiComponentCreateInvalidData() : void

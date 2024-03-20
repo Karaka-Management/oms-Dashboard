@@ -32,7 +32,7 @@ final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Models\DashboardComponent
+     * @covers \Modules\Dashboard\Models\DashboardComponent
      * @group module
      */
     public function testDefault() : void
@@ -45,7 +45,7 @@ final class DashboardComponentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Models\DashboardComponent
+     * @covers \Modules\Dashboard\Models\DashboardComponent
      * @group module
      */
     public function testSerialize() : void

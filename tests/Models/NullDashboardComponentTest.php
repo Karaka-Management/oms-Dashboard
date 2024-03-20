@@ -22,7 +22,7 @@ use Modules\Dashboard\Models\NullDashboardComponent;
 final class NullDashboardComponentTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\Dashboard\Models\NullDashboardComponent
+     * @covers \Modules\Dashboard\Models\NullDashboardComponent
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullDashboardComponentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Models\NullDashboardComponent
+     * @covers \Modules\Dashboard\Models\NullDashboardComponent
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullDashboardComponentTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\Dashboard\Models\NullDashboardComponent
+     * @covers \Modules\Dashboard\Models\NullDashboardComponent
      * @group module
      */
     public function testJsonSerialize() : void
