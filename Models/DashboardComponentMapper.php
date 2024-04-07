@@ -17,7 +17,7 @@ namespace Modules\Dashboard\Models;
 use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
- * Mapper class.
+ * dashboardComponent mapper class.
  *
  * @package Modules\Dashboard\Models
  * @license OMS License 2.0
