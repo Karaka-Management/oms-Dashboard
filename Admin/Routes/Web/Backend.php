@@ -22,7 +22,7 @@ return [
         [
             'dest'       => '\Modules\Dashboard\Controller\BackendController:viewDashboard',
             'verb'       => RouteVerb::GET,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,

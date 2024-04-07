@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\Dashboard\Controller\ApiController:apiBoardCreate',
             'verb'       => RouteVerb::PUT,
             'csrf'       => true,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
@@ -36,7 +36,7 @@ return [
             'dest'       => '\Modules\Dashboard\Controller\ApiController:apiComponentAdd',
             'verb'       => RouteVerb::PUT,
             'csrf'       => true,
-            'active' => true,
+            'active'     => true,
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::CREATE,
