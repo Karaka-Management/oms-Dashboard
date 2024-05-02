@@ -41,6 +41,12 @@ final class BackendController extends Controller
      *
      * @return RenderableInterface
      *
+     * @todo Create default dashboard templates which can be used by users, changing them copies it for this user
+     *      https://github.com/Karaka-Management/oms-Dashboard/issues/7
+     *
+     * @feature Allow people to modify a dashboard and automatically save it / reload it
+     *      https://github.com/Karaka-Management/oms-Dashboard/issues/6
+     *
      * @since 1.0.0
      * @codeCoverageIgnore
      */
